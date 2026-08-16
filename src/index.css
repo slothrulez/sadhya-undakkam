@@ -1,0 +1,160 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Malayalam:wght@300;400;500&family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,800;1,400;1,600&family=Poppins:wght@300;400;500;600;700&display=swap');
+
+@import 'tailwindcss';
+
+@theme {
+  --font-serif: 'Playfair Display', Georgia, serif;
+  --font-sans: 'Poppins', system-ui, sans-serif;
+  --color-sadhya-gold: #d4af37;
+  --color-kerala-green: #1a4d2e;
+  --color-kerala-green-mid: #2d6b40;
+  --color-warm-red: #c41e3a;
+  --color-cream: #f5f1de;
+  --color-accent-orange: #ff8c42;
+  --color-leaf-green: #52a552;
+  --color-leaf-dark: #3d7a35;
+  --color-kannur-red: #9b1a1a;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html, body, #root {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  font-family: 'Poppins', system-ui, sans-serif;
+  background: #1a4d2e;
+}
+
+::-webkit-scrollbar { width: 4px; height: 4px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: rgba(212,175,55,0.4); border-radius: 2px; }
+::-webkit-scrollbar-thumb:hover { background: rgba(212,175,55,0.7); }
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@keyframes floatBob {
+  0%, 100% { transform: translateY(0px); }
+  50%       { transform: translateY(-10px); }
+}
+
+@keyframes maveliHappy {
+  0%   { transform: translateY(0) scale(1); }
+  25%  { transform: translateY(-18px) scale(1.05); }
+  50%  { transform: translateY(-8px) scale(1.02); }
+  75%  { transform: translateY(-15px) scale(1.04); }
+  100% { transform: translateY(0) scale(1); }
+}
+
+@keyframes maveliExcited {
+  0%   { transform: rotate(0deg) scale(1); }
+  20%  { transform: rotate(-8deg) scale(1.1); }
+  40%  { transform: rotate(8deg) scale(1.08); }
+  60%  { transform: rotate(-5deg) scale(1.06); }
+  80%  { transform: rotate(5deg) scale(1.04); }
+  100% { transform: rotate(0deg) scale(1); }
+}
+
+@keyframes maveliThinking {
+  0%, 100% { transform: rotate(0deg); }
+  30%       { transform: rotate(-6deg); }
+  70%       { transform: rotate(-6deg); }
+}
+
+@keyframes statBarFill {
+  from { width: 0%; }
+}
+
+@keyframes confettiFall {
+  0%   { transform: translateY(-10px) rotate(0deg); opacity: 1; }
+  100% { transform: translateY(110vh) rotate(540deg); opacity: 0; }
+}
+
+@keyframes scoreCount {
+  from { opacity: 0; transform: scale(0.7); }
+  to   { opacity: 1; transform: scale(1); }
+}
+
+@keyframes pulseGold {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(212,175,55,0.4); }
+  50%       { box-shadow: 0 0 0 12px rgba(212,175,55,0); }
+}
+
+@keyframes leafDraw {
+  from { stroke-dashoffset: 1000; }
+  to   { stroke-dashoffset: 0; }
+}
+
+@keyframes slideInBottom {
+  from { transform: translateY(80px); opacity: 0; }
+  to   { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes slideInRight {
+  from { transform: translateX(40px); opacity: 0; }
+  to   { transform: translateX(0); opacity: 1; }
+}
+
+@keyframes shimmer {
+  0%   { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
+
+.animate-fade-in-up      { animation: fadeInUp 0.5s ease-out both; }
+.animate-fade-in         { animation: fadeIn 0.4s ease-out both; }
+.animate-float           { animation: floatBob 3s ease-in-out infinite; }
+.animate-maveli-happy    { animation: maveliHappy 0.8s ease-in-out; }
+.animate-maveli-excited  { animation: maveliExcited 0.7s ease-in-out; }
+.animate-maveli-thinking { animation: maveliThinking 1.2s ease-in-out infinite; }
+.animate-slide-in-bottom { animation: slideInBottom 0.6s cubic-bezier(.22,.68,0,1.2) both; }
+.animate-slide-in-right  { animation: slideInRight 0.5s ease-out both; }
+.animate-pulse-gold      { animation: pulseGold 2s infinite; }
+.animate-confetti        { animation: confettiFall 2.5s ease-in both; }
+.animate-score-reveal    { animation: scoreCount 0.5s cubic-bezier(.34,1.56,.64,1) both; }
+
+.gold-shimmer {
+  background: linear-gradient(
+    90deg,
+    #d4af37 0%, #f5d76e 30%, #d4af37 50%, #b8960c 70%, #d4af37 100%
+  );
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: shimmer 3s linear infinite;
+}
+
+.stat-bar-fill {
+  transition: width 0.6s cubic-bezier(.22,.68,0,1.2);
+}
+
+.dish-card-hover {
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+}
+.dish-card-hover:hover {
+  transform: translateX(4px);
+}
+
+.leaf-shadow {
+  filter: drop-shadow(0 8px 24px rgba(0,0,0,0.4));
+}
+
+.glass-panel {
+  background: rgba(255,255,255,0.06);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255,255,255,0.12);
+}
+
+.page-container {
+  width: 100%;
+  min-height: 100vh;
+  animation: fadeIn 0.35s ease-out;
+}
