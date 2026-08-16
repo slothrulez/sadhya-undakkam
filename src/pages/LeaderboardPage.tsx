@@ -269,7 +269,7 @@ export default function LeaderboardPage({ onBuildAnother }: LeaderboardPageProps
             Could not reach the leaderboard server.
           </p>
           <p style={{ color: 'rgba(255,255,255,0.35)', fontSize: '0.72rem', fontFamily: FONT, textAlign: 'center' }}>
-            The Supabase edge function needs to be deployed — go to <strong style={{ color: 'rgba(255,255,255,0.6)' }}>Make Settings → Deploy edge function</strong>, then retry.
+            Check your connection and retry.
           </p>
           <button
             onClick={() => load()}

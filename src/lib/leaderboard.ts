@@ -8,7 +8,7 @@ const HEADERS = {
   'Content-Type': 'application/json',
 }
 
-// ── localStorage fallback ─────────────────────────────────────────────────
+// localStorage fallback
 
 const LOCAL_KEY = 'sadhya_lb_local'
 
@@ -23,7 +23,7 @@ function localSave(entry: LeaderboardEntry) {
   }
 }
 
-// ── API ───────────────────────────────────────────────────────────────────
+// API
 
 export async function saveEntry(entry: LeaderboardEntry): Promise<void> {
   localSave(entry)
@@ -63,7 +63,7 @@ export async function getEntries(): Promise<LeaderboardEntry[]> {
   return [...data, ...localOnly]
 }
 
-// ── helpers ───────────────────────────────────────────────────────────────
+// helpers
 
 export function getEntriesFiltered(
   entries: LeaderboardEntry[],
@@ -75,8 +75,6 @@ export function getEntriesFiltered(
     ? [...list].sort((a, b) => b.score - a.score || b.timestamp - a.timestamp)
     : [...list].sort((a, b) => b.timestamp - a.timestamp)
 }
-
-export const getEntriesSorted = getEntriesFiltered
 
 export function timeAgo(ts: number): string {
   const diff = Date.now() - ts

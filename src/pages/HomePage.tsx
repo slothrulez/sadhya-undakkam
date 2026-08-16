@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from 'react'
 import type { GameMode } from '../types'
-import normalBgVideo from '../imports/Create_a_second_seamless_lo.mp4'
-import kannurBgVideo from '../imports/Create_a_second_seamless_lo__1_.mp4'
+import normalBgVideo from '../assets/home-bg-normal.mp4'
+import kannurBgVideo from '../assets/home-bg-kannur.mp4'
 
 interface HomePageProps {
   mode: GameMode
@@ -75,7 +75,7 @@ export default function HomePage({ mode, onModeChange, onStart, onViewLeaderboar
         style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover', zIndex: 1 }}
       />
 
-      {/* Overlay — cosmos centre-open vignette */}
+      {/* Centre-open vignette overlay */}
       <div style={{
         position: 'absolute', inset: 0, zIndex: 2, pointerEvents: 'none',
         background: `linear-gradient(to bottom,

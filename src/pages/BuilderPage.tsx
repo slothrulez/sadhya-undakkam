@@ -2,9 +2,9 @@ import { useCallback, useEffect, useRef, useState } from 'react'
 import type { Dish, DrawnPortion, GameMode, Stats } from '../types'
 import { normalDishes, kannurDishes, MAVELI_REACTIONS_NORMAL, MAVELI_REACTIONS_KANNUR } from '../data/dishes'
 import MaveliCharacter from '../components/MaveliCharacter'
-import onamBgm from '../imports/onam_bgm_-_athira_gp.mp3'
-import kannurBgm from '../imports/Manatharil_Karaoke_With_Lyrics__Kannur_Seenath__Mappila_Karaoke_-_Mappila_Karaoke-1.mp3'
-import hmmSound from '../imports/Hmm-mm_-_Sound_Effect_-_Eccentric_Sounds.mp3'
+import onamBgm from '../assets/bgm-onam.mp3'
+import kannurBgm from '../assets/bgm-kannur.mp3'
+import hmmSound from '../assets/sfx-hmm.mp3'
 
 interface BuilderPageProps {
   mode: GameMode
@@ -15,7 +15,7 @@ interface BuilderPageProps {
 const EMPTY_STATS: Stats = { power: 0, spice: 0, crunch: 0, chaos: 0, sweetness: 0 }
 const FONT = "'Poppins', 'Noto Sans Malayalam', system-ui, sans-serif"
 
-// ── Math helpers ─────────────────────────────────────────────────────────────
+// Math helpers
 
 function shoelaceArea(pts: { x: number; y: number }[]): number {
   let a = 0
@@ -46,7 +46,7 @@ function getBounds(path: { x: number; y: number }[]) {
   return { minX, minY, w: Math.max(...xs) - minX, h: Math.max(...ys) - minY }
 }
 
-// ── Animated texture system ──────────────────────────────────────────────────
+// Animated texture system
 
 function rng(seed: number) {
   let s = (Math.abs(Math.round(seed)) || 42) % 2147483647
@@ -131,7 +131,7 @@ function blobs(ctx: Ctx, x: number, y: number, w: number, h: number, r_: () => n
   ctx.globalAlpha = 1
 }
 
-// ── Per-dish texture renderers ──────────────────────────────────────────────
+// Per-dish texture renderers
 
 function texChoru(ctx: Ctx, x: number, y: number, w: number, h: number, t: number) {
   grad(ctx, x, y, w, h, '#f5f1e6', '#ece5d4')
@@ -375,7 +375,7 @@ function drawDishTexture(
   ctx.stroke(p2d); ctx.restore()
 }
 
-// ── Stat metadata ────────────────────────────────────────────────────────────
+// Stat metadata
 
 const STAT_META = [
   { key: 'power'     as const, label: 'Power',    color: '#d4af37', icon: '⚡' },
@@ -385,7 +385,7 @@ const STAT_META = [
   { key: 'sweetness' as const, label: 'Sweetness', color: '#e87040', icon: '✨' },
 ]
 
-// ── Banana leaf SVG ──────────────────────────────────────────────────────────
+// Banana leaf SVG
 
 function BananaLeafBg() {
   return (
@@ -421,7 +421,7 @@ function BananaLeafBg() {
   )
 }
 
-// ── Tooltip ──────────────────────────────────────────────────────────────────
+// Tooltip
 
 interface TooltipState { dish: Dish; x: number; y: number }
 
@@ -455,7 +455,7 @@ function DishTooltip({ dish, x, y }: TooltipState) {
   )
 }
 
-// ── Main component ───────────────────────────────────────────────────────────
+// Main component
 
 export default function BuilderPage({ mode, onFinalize, onBack }: BuilderPageProps) {
   const dishes  = mode === 'normal' ? normalDishes : kannurDishes
