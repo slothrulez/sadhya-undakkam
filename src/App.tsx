@@ -37,7 +37,7 @@ export default function App() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [mode])
 
-  // ── Page handlers ─────────────────────────────────────────────────────────
+  // Page handlers
 
   const handleStart = () => setPage('builder')
 

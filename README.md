@@ -104,7 +104,6 @@ Players can save their Sadhya and compete with other creations.
 
 ### Tools
 
-- **Figma Make** — Built during the make-a-thon
 - **pnpm** — Package management
 - **Node.js 22+** — Runtime
 
@@ -135,12 +134,9 @@ sadhya-undakkam/
 │   ├── lib/
 │   │   └── leaderboard.ts      # Leaderboard logic
 │   │
-│   └── imports/
+│   └── assets/
 │       ├── *.mp3               # Audio assets
 │       └── *.mp4               # Video assets
-│
-├── supabase/
-│   └── functions/              # Backend utilities
 │
 ├── utils/
 │   └── supabase/               # Supabase configuration

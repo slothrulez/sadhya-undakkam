@@ -2,9 +2,9 @@ import { useEffect, useMemo, useRef, useState } from 'react'
 import type { DrawnPortion, GameMode, LeaderboardEntry, Stats } from '../types'
 import MaveliCharacter from '../components/MaveliCharacter'
 import { saveEntry } from '../lib/leaderboard'
-import resultNormalVideo from '../imports/Create_a_second_seamless_lo__3_.mp4'
-import resultKannurVideo from '../imports/Create_a_second_seamless_lo__1___1_.mp4'
-import kannurResultAudio from '../imports/Manatharil_transition__trending__transition__manatharil__kannurseenath_-_Rosenna.mp3'
+import resultNormalVideo from '../assets/result-bg-normal.mp4'
+import resultKannurVideo from '../assets/result-bg-kannur.mp4'
+import kannurResultAudio from '../assets/result-kannur.mp3'
 
 interface ResultPageProps {
   mode: GameMode
@@ -218,7 +218,7 @@ export default function ResultPage({
     }
   }
 
-  // ── PRE-RESULTS loading animation ─────────────────────────────────────────
+  // Pre-results loading animation
   if (phase !== 'results') {
     return (
       <div style={{
@@ -264,7 +264,7 @@ export default function ResultPage({
     )
   }
 
-  // ── RESULTS: video full-page bg, cosmos score card on left half ────────────
+  // Results: full-page video background with the score card on the left half
   return (
     <div style={{ position: 'relative', height: '100vh', overflow: 'hidden', fontFamily: FONT }}>
       <Confetti />
@@ -303,7 +303,7 @@ export default function ResultPage({
         {soundOn ? 'Sound on' : 'Sound off'}
       </button>
 
-      {/* ── Score card: strictly left 50% ─────────────────────────────────── */}
+      {/* Score card: strictly left 50% */}
       <div style={{
         position: 'absolute', top: 0, left: 0, width: '50%', height: '100%',
         overflowY: 'auto', zIndex: 10,
@@ -321,7 +321,7 @@ export default function ResultPage({
           Your Sadhya Result
         </p>
 
-        {/* Score number — cosmos: thin weight, tight tracking */}
+        {/* Score number */}
         <div className="animate-score-reveal" style={{ animationDelay: '0.25s', marginBottom: 4 }}>
           <span style={{
             fontFamily: FONT, fontWeight: 300,
